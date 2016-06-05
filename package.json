@@ -1,0 +1,22 @@
+{
+  "name": "benchmarking",
+  "version": "0.0.1",
+  "description": "Benchmarks for Project Ghost",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dasch42/ProjectGhost-Benchmarks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dasch42/ProjectGhost-Benchmarks/issues"
+  },
+  "homepage": "https://github.com/Dasch42/ProjectGhost-Benchmarks#readme",
+  "dependencies": {
+    "bench-rest": "^1.2.0",
+  }
+}
