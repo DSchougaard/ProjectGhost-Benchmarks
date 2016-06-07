@@ -1,0 +1,55 @@
+daniel@LinuxRig:~/Projects/ProjectGhost-Benchmarks$ ./test.sh 
+This is ApacheBench, Version 2.3 <$Revision: 1638069 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8081
+SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,4096,128
+
+Document Path:          /api/users/1/passwords/1
+Document Length:        784 bytes
+
+Concurrency Level:      10
+Time taken for tests:   1319.779 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      9120000 bytes
+HTML transferred:       7840000 bytes
+Requests per second:    7.58 [#/sec] (mean)
+Time per request:       1319.779 [ms] (mean)
+Time per request:       131.978 [ms] (mean, across all concurrent requests)
+Transfer rate:          6.75 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        8    9   2.4      9     100
+Processing:    53 1311 100.7   1303    1678
+Waiting:       50 1310 100.7   1302    1678
+Total:        130 1320  99.8   1312    1687
+
+Percentage of the requests served within a certain time (ms)
+  50%   1312
+  66%   1345
+  75%   1374
+  80%   1387
+  90%   1440
+  95%   1489
+  98%   1572
+  99%   1603
+ 100%   1687 (longest request)

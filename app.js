@@ -2,27 +2,35 @@ global.__base 		= __dirname + '/';
 
 var benchrest 	= require('bench-rest');
 var fs 			= require('fs');
+var request = require('sync-request');
 
-var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjUsImlhdCI6MTQ2NTEzNTI3MiwiZXhwIjoxNDY2MzQ0ODcyLCJsdmwiOjF9.H7kkvkN46phWykeuPyREPqOzVJQYi2nobWlWpu3S2i3D5xbhb-gGFMP7xBqncPBKDc_wbnFxUAs3PA1DPCLi1rb8gLQJzmvgVEpwP_akKxljxQ2r1yOHAC-p9NkWfvTA3clvJ6R-Dv5a9J-oj8xaQQOc5IH-EpzfgNyGS_zwyduufvoPLTSLyz4tFr1BZ37Xdp_Rsr8Ze_BorwLUxCt9pT6Lw9wJlnr9LQT8FfLVgUspiOif6MAlpglU9X677v-1e78Bg558QsA_Yb2gFyUIoYdfOr_Zzl1lHbkd1AOStvIREHkv2UhSGKGZSOVa_sGs8HXUnl3jLA5mo7DdJeH2OJZ1zDl0cgeTr1V-Qfa_nT2OWZomqHCURCfbN4Z0TAYpJi-ABX0IjVP7HM2A-QAgtTX46LwQuzm6rDJWFIZAOjS2IijpG7c5r67NWq9A_oyGFahZWKYx0RtyYCsgqaf2AAX7gSY0SKHLToipp8TPL8DQzPrjzvXYDs0gvpLWtAY48e3ZeZply8FIwX-6jP-DiEZiLOD1aMPJanFaBqtTaIkDGq_AhVPwcJxFesnVwv8x2eFU42tiS1_8l86rLUsz1seUruuYNu069RrfeyI55CM6gPb29XY6lxZU_aVQy0vIjRbCTpp5N4_VRt-fYAhXDymeLPS6Cgf63ynP195hEr8";
+var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjEsImlhdCI6MTQ2NTIwMjQ2OCwiZXhwIjoxNDY2NDEyMDY4LCJsdmwiOjF9.YfUd52JBdEWwUjdclbfaGQwjG9K_qExDVf_fug6Y4slq8HnWWb1s3AwbJYnFcVULT-aN3vkl-0beHc7aeHUzNbaBWTZ3gW2eLsX_NntgZmVO6jiy8Z1c776ZQO5VaAEly6zQCK4qhaA5H3qheUDTD1y0aNQPC_PUHP_QTCAHDY-L-9PErZIP94T09YNfsswml8Y_qJwCVV5lhwPHfkoIFD_w0GK4j9gI4B7JW5ZGslaed23yMT1ZIUK76HVrij8MvyLeMpF5-m7cYc0EOgGXWETkZGsTTo-rWaWAWay1_rUAYoEos70l1DZle63k6GfLhKWycKFLmd4VaKO6JeSJ19HoR-Q25igy8e-RUSIPo_YbiMkEKFP0Dbmu0DPGaRfWaHZra_75nxeGF1z1-wZgVlvtq3YJI8hSoJx3tlv9XdZ1UT4vnV-rdtaXTRFFf6in7oX8GwN67UDtUxG2WPHYZM_D9YG6KqdbJ_3eCLOp9Y1caYcIanyC5JP7qhPas0LMytii2UwmaJeeK9q1e6sUEtRxq75_S2BnUFVGN8P4Q6hrvT8SMA50Q134jPZ3rUQOIQanExbPlgRl89sSWrh_KJ63u5qnsmEWfiA-Akmc1KssZ43ahEu-aNPkFp0KgG-EFOwEf7r1DFJ_2P4IqLsMGfXAJ0n-NaIBPFRdPPLq1UA";
 
-var flow = {
-	main: [
-	//	{ get: 'https://localhost:8081/', strictSSL: false},
-		//{ post: 'https://localhost:8081/api/auth/login', strictSSL: false, json:{username:'Daniel',password:'password'} , headers {'Authorization': 'Bearer '+token}},
-		{ get: 'https://localhost:8081/api/users/5/passwords/43', strictSSL: false, json:{username:'Daniel',password:'password'} , headers: {'Authorization': 'Bearer '+token}},
+//var flow = {
+//	main: [
+//	//	{ get: 'https://localhost:8081/', strictSSL: false},
+//		//{ post: 'https://192.168.1.18:8081/api/auth/login', strictSSL: false, json:{username:'admin',password:'admin'} },
+//		//{ get: 'https://192.168.1.18:8081/api/auth/ping', strictSSL: false },
+//		{ get: 'https://192.168.1.18:8081/api/users/1/passwords/1', strictSSL: false, headers: {'Authorization': 'Bearer '+token}},
+//
+//	]
+//};
+//
+//module.exports = flow;
+//
+//var runOptions = {
+//	limit: 10,     // concurrent connections
+//	iterations: 10000 // number of iterations to perform
+//};
+//benchrest(flow, runOptions)
+//	.on('error', function (err, ctxName) { console.error('Failed in %s with err: ', ctxName, err); })
+//	.on('end', function (stats, errorCount) {
+//		console.log('error count: ', errorCount);
+//		console.log('stats', stats);
+//	});
+//
 
-	]
-};
-
-module.exports = flow;
-
-var runOptions = {
-	limit: 10,     // concurrent connections
-	iterations: 10000 // number of iterations to perform
-};
-benchrest(flow, runOptions)
-	.on('error', function (err, ctxName) { console.error('Failed in %s with err: ', ctxName, err); })
-	.on('end', function (stats, errorCount) {
-		console.log('error count: ', errorCount);
-		console.log('stats', stats);
-	});
+for( var i = 0 ; i < 1000 ; i++ ){
+	var res = request('GET', 'https://192.168.1.18:8081/api/users/1/passwords/1', {strictSSL: false});
+	console.log(res.getBody());
+}
